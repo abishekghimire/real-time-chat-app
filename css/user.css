@@ -1,0 +1,145 @@
+@import url(style.css);
+
+/* Users CSS code */
+.users {
+  padding: 25px 30px;
+}
+
+.users header,
+.users-list a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.wrapper img {
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+:is(.users, .users-list) .content {
+  display: flex;
+  align-items: center;
+}
+
+.users header .content img {
+  height: 50px;
+  width: 50px;
+}
+
+/* Using same styles for users and users-list class at once using :is() */
+:is(.users, .users-list) .details {
+  color: #000;
+  margin-left: 15px;
+}
+
+:is(.users, .users-list) .details span {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.users header .logout {
+  background: #004aad;
+  color: #fff;
+  padding: 7px 15px;
+  font-size: 17px;
+  border-radius: 5px;
+}
+
+.users .search {
+  margin: 20px 0;
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.users .search .text {
+  font-size: 18px;
+}
+
+.users .search input {
+  position: absolute;
+  height: 42px;
+  width: calc(100% - 50px);
+  border: 1px solid #ccc;
+  padding: 0 13px;
+  font-size: 16px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.2s ease;
+}
+
+/* for active search bar */
+.users .search input.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.users .search button {
+  width: 47px;
+  height: 42px;
+  border: none;
+  outline: none;
+  color: #004aad;
+  background: #fff;
+  cursor: pointer;
+  font-size: 17px;
+  border-radius: 0 5px 5px 0;
+  transition: all 0.2s ease;
+}
+
+/* For active search button */
+.users .search button.active {
+  color: #fff;
+  background: #004aad;
+}
+
+/* For cross sign in search button */
+.users .search button.active i::before {
+  content: "\f00d";
+}
+
+.users-list {
+  max-height: 350px;
+  overflow-y: auto;
+}
+
+:is(.users-list, .chat-box)::-webkit-scrollbar {
+  width: 0px;
+}
+
+.users-list a {
+  margin-bottom: 15px;
+  padding-right: 15px;
+  padding-bottom: 10px;
+  border-bottom-color: #f1f1f1;
+}
+
+.users-list a:last-child {
+  border: none;
+  margin-bottom: 0px;
+}
+
+.users-list a .content img {
+  height: 40px;
+  width: 40px;
+}
+
+.users-list a .content p {
+  color: #67676a;
+}
+
+.users-list a .status-dot {
+  font-size: 10px;
+  color: #004aad;
+}
+
+/* To show offline status */
+.users-list a .status-dot.offline {
+  color: #ccc;
+}
